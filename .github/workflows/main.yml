@@ -42,7 +42,6 @@ jobs:
         aws-region: us-east-1
         profile_name: default
         project_name: gotSportScrapper
-        runtime: python3.9
     
     # Runs a set of commands using the runners shell; THIS DOESN'T WORK
     - name: Run a multi-line script
@@ -74,5 +73,5 @@ jobs:
       uses: appleboy/lambda-action@v0.0.4
       with:
             #name of my AWS Lambda Function
-            function_name: FSL_gotSportScrapper
+            function_name: gotSportScrapper
             zip_file: gotSportScrapper.zip

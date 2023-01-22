@@ -22,6 +22,7 @@ pip install \
     --only-binary=:all: --upgrade \
     beautifulsoup4
 
+ Test
 
 https://dev.to/aissalaribi/how-to-use-beautiful-soup-in-aws-lambda-for-web-scrapping-1gh8
 

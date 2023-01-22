@@ -24,3 +24,9 @@ pip install \
 
 
 https://dev.to/aissalaribi/how-to-use-beautiful-soup-in-aws-lambda-for-web-scrapping-1gh8
+
+https://blog.jakoblind.no/aws-lambda-github-actions/
+
+https://towardsdatascience.com/modern-ci-cd-pipeline-git-actions-with-aws-lambda-serverless-python-functions-and-api-gateway-9ef20b3ef64a
+
+

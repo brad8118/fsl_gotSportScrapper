@@ -6,7 +6,7 @@ import json
 
 #lambda function
 def lambda_handler(event, context):
-  # 'body': json.dumps(urls)
+  # 'body': json.dumps(urls) #testeere
   
   urls = event['urls']
 

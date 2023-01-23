@@ -47,27 +47,8 @@ jobs:
     # Runs a set of commands using the runners shell; THIS DOESN'T WORK
     - name: Run a multi-line script
       run: |
-        #install PIP
-        #python -m pip install --upgrade pip
-        #install all dependencies as defined by requirements.txt in the current directory
-        #pip3 install -r requirements.txt -t .
-        #for installing invidividual modules
-        #pip3 install Flask -t .
 
-        # Copy the lambda_function.py to fsl_gotSportScrapper_data - which only holds the lambda and the required resources
-        # cp source destination
-        # cp ./lambda_function.py ./fsl_gotSportScrapper_data/lambda_function.py
-
-        #zip files into current directory
-        #  zip -r gotSportScrapper.zip . # copy all
         zip -r gotSportScrapper.zip ./fsl_gotSportScrapper_data ./lambda_function.py 
-         
-        #for installing chrome
-        #  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        #  sudo dpkg -i google-chrome-stable_current_amd64.deb
-         
-        #ensuring current working directory is accessible by the function--this might not be doing anything
-        export PATH=$PATH:$(pwd)
     
     #Deploy lambda_function.py to AWS
     - name: AWS Lambda Deploy

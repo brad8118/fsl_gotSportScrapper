@@ -31,7 +31,10 @@ def lambda_handler(event, context):
 
 def getHtml(url):
   try:
+    print("Calling url:", url)
     webpage = requests.get(url)
+    print(webpage)
+    
     if webpage.status_code == 200:
       webpage_bs = BeautifulSoup(webpage.text, 'html.parser')
       # webpage_bs = BeautifulSoup(webpage.content, 'html.parser')

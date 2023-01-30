@@ -12,8 +12,16 @@ def lambda_handler(event, context):
   urls = event['urls']
 
   url = "https://system.gotsport.com/org_event/events/18280/schedules?club=3694"
-  html = getHtml(url)
-  games = parseHtml(html)
+  response = getHtml(url)
+
+  if( response["success"] == False ):
+      return {
+        'statusCode': 200,
+        'data': response
+  }
+
+
+  games = parseHtml(response["data"])
   
   return {
         'statusCode': 200,
@@ -29,13 +37,15 @@ def getHtml(url):
       # webpage_bs = BeautifulSoup(webpage.content, 'html.parser')
       # print("Success")
       # print(webpage_bs.prettify())
-      return webpage_bs
+      print("Success getting HTML")
+      return {"success": True, "data": webpage_bs }
     else:
       # print(webpage.status_code+" "+url)
-      return webpage.status_code+" "+url
+      return {"success": False, "data": webpage.status_code+" "+url }
   except Exception as e:
     # print("requests does not work : "+url)
-    return False
+    return {"success": False, "data": e }
+
     
 
 # <div class='hidden-xs'>
@@ -87,6 +97,6 @@ def parseHtml(html):
     #     print(g)
     return games
 
-url = "https://system.gotsport.com/org_event/events/18280/schedules?club=3694"
-html = getHtml(url)
-games = parseHtml(html)
+# url = "https://system.gotsport.com/org_event/events/18280/schedules?club=3694"
+# html = getHtml(url)
+# games = parseHtml(html)

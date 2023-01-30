@@ -1,6 +1,5 @@
 # fsl_gotSportScrapper
 
-test
 
 Pip install the required modules into <b>fsl_gotSportScrapper_data</b>
 This folder will end up getting a copy of lambda_function when its deployed to AWS.
@@ -32,3 +31,5 @@ https://blog.jakoblind.no/aws-lambda-github-actions/
 https://towardsdatascience.com/modern-ci-cd-pipeline-git-actions-with-aws-lambda-serverless-python-functions-and-api-gateway-9ef20b3ef64a
 
 
+When pushing the zip to AWS the user needs to have permissions
+- How to setup https://benoitboure.com/securely-access-your-aws-resources-from-github-actions

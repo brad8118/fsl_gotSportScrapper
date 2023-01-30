@@ -9,7 +9,7 @@ def lambda_handler(event, context):
   # 'body': json.dumps(urls)
   
   
-  urls = event['urls']
+  # urls = event['urls']
 
   url = "https://system.gotsport.com/org_event/events/18280/schedules?club=3694"
   html = getHtml(url)

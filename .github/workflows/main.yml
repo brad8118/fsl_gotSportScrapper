@@ -18,9 +18,9 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # Allows the OICD 
-#     permissions:
-#       id-token: write # required to use OIDC authentication
-#       contents: read # required to checkout the code from the repo
+    permissions:
+      id-token: write # required to use OIDC authentication
+      contents: read # required to checkout the code from the repo
   
     # The type of runner that the job will run on
     runs-on: ubuntu-latest

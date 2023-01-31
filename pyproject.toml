@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "repl_nix_fslgotSportScrapper"
+version = "0.1.0"
+description = ""
+authors = ["Replit user <<>>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+simplejson = "^3.18.1"
+xds-protos = "^0.0.11"
+Brotli = "^1.0.9"
+chardet = "^5.1.0"
+cchardet = "^2.1.7"
+cryptography = "^39.0.0"
+html5lib = "^1.1"
+pyOpenSSL = "^23.0.0"
+hid-converge-ngs = "^2.0.1"
+python-ntlm = "^1.1.0"
+urllib3-secure-extra = "^0.1.0"
+lxml = "^4.9.2"
+brotlicffi = "^1.0.9"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

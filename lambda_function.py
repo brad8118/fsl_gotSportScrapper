@@ -84,15 +84,15 @@ def parseHtml(html):
               # 'away': cols[4].replace("Freehold SL Freehold SL ", " "),
               'location': cols[5],
               'division': cols[6],
-              'homeGame': True if "Freehold SL" in cols[2] else False,
+              'homeGame': 'True' if "Freehold SL" in cols[2] else 'False',
               'year': cols[6].split(" ")[0],
               'sex': cols[6].split(" ")[1]
              }
       home = cols[2].replace("Freehold SL Freehold SL ", "")
       away = cols[4].replace("Freehold SL Freehold SL ", "")
       
-      game['freeholdTeam'] = home if game['homeGame'] else away
-      game['opponent'] = away if game['homeGame'] else home
+      game['freeholdTeam'] = home if game['homeGame'] == 'True' else away
+      game['opponent'] = home if game['homeGame'] != 'True' else away
       
       try:
         homeField, homeFieldNum = game['location'].rsplit("-", 1)

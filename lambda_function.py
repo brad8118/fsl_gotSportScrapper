@@ -95,7 +95,7 @@ def parseHtml(html):
       game['opponent'] = away if game['homeGame'] else home
       
       try:
-        homeField, homeFieldNum = game['location'].rsplit(", ", 1)
+        homeField, homeFieldNum = game['location'].rsplit("-", 1)
         game['field'] = homeField.strip()
         game['fieldNum'] = homeFieldNum.strip()
       except:

@@ -79,21 +79,29 @@ def parseHtml(html):
       game = {'date':dates[index], 
               'matchNum': cols[0],
               'time': cols[1].replace("\n\nScheduled",""),
-              'home': cols[2].replace("Freehold SL Freehold SL ", ""),
+              # 'home': cols[2].replace("Freehold SL Freehold SL ", " "),
               'result': cols[3],
-              'away': cols[4].replace("Freehold SL Freehold SL ", ""),
+              # 'away': cols[4].replace("Freehold SL Freehold SL ", " "),
               'location': cols[5],
               'division': cols[6],
               'homeGame': True if "Freehold SL" in cols[2] else False,
               'year': cols[6].split(" ")[0],
               'sex': cols[6].split(" ")[1]
              }
-      if game['homeGame']:
-        game['homeField'] = game['location'].split("-")[0].strip()
-        game['homeFieldNum'] = game['location'].split("-")[1].strip()
-      else:
-        game['homeField'] = ''
-        game['homeFieldNum'] = ''
+      home = cols[2].replace("Freehold SL Freehold SL ", "")
+      away = cols[4].replace("Freehold SL Freehold SL ", "")
+      
+      game['freeholdTeam'] = home if game['homeGame'] else away
+      game['opponent'] = away if game['homeGame'] else home
+      
+      try:
+        homeField, homeFieldNum = game['location'].rsplit(", ", 1)
+        game['field'] = homeField.strip()
+        game['fieldNum'] = homeFieldNum.strip()
+      except:
+        game['field'] = ''
+        game['fieldNum'] = ''
+        
       games.append(game)
     
     # print("games", len(games))

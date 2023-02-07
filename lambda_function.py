@@ -10,8 +10,16 @@ def lambda_handler(event, context):
   
   
   # urls = event['urls']
+  queryParams = event["queryStringParameters"]  
+  #   print(queryParams)
 
-  url = "https://system.gotsport.com/org_event/events/18280/schedules?club=3694"
+  if 'event' in queryParams and 'event' in queryParams:
+    url = "https://system.gotsport.com/org_event/events/{}/schedules?club={}".format(queryParams['event'],queryParams['club'])
+  else:
+    print("'event' or 'club' are missing in query params", queryParams)      
+    url = "https://system.gotsport.com/org_event/events/18280/schedules?club=3694"    
+    print("Using default URL", url)
+  
   response = getHtml(url)
 
   if( response["success"] == False ):

@@ -6,17 +6,13 @@ import json
 
 #lambda function
 def lambda_handler(event, context):
-  # 'body': json.dumps(urls)
-  
-  
-  # urls = event['urls']
   queryParams = event["queryStringParameters"]  
   #   print(queryParams)
 
-  if 'event' in queryParams and 'event' in queryParams:
-    url = "https://system.gotsport.com/org_event/events/{}/schedules?club={}".format(queryParams['event'],queryParams['club'])
+  if 'eventId' in queryParams and 'clubId' in queryParams:
+    url = "https://system.gotsport.com/org_event/events/{}/schedules?club={}".format(queryParams['eventId'],queryParams['clubId'])
   else:
-    print("'event' or 'club' are missing in query params", queryParams)      
+    print("'eventId' or 'clubId' are missing in query params. Needs to be like this '?eventId=18280/&clubId=3694'", queryParams)      
     url = "https://system.gotsport.com/org_event/events/18280/schedules?club=3694"    
     print("Using default URL", url)
   
